@@ -21,6 +21,7 @@ Route::get('/about',[FrontendController::class,'about']);
 Route::get('/project',[FrontendController::class,'project']);
 Route::get('/testimonial',[FrontendController::class,'testimonial']);
 Route::get('/contact',[FrontendController::class,'contact']);
+Route::post('/contact',[FrontendController::class,'submitForm'])->name('contact');
 Route::get('/login',[FrontendController::class, 'showLogin'])->name('login');
 Route::post('/login',[FrontendController::class,'login']);
 
@@ -37,6 +38,7 @@ Route::post('/teams/store',[ServiceController::class,'store'])->name('teams.stor
 Route::get('/teams/{id}edit',[ServiceController::class,'edit'])->name('teams.edit');
 Route::put('/teams/{id}/update',[ServiceController::class,'update'])->name('teams.update');
 Route::delete('/teams/{id}/delete',[ServiceController::class,'delete'])->name('teams.delete');
+
 
 
 

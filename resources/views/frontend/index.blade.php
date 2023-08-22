@@ -152,7 +152,7 @@
           <div class="col-md-6 col-lg-3">
             <div class="box ">
               <div class="img-box">
-                <img src="{{asset('services/img/'. $service->photo)}}" alt=""/>
+                <img src="{{asset('images/'. $service->photo)}}" alt=""/>
               </div>
               <div class="detail-box">
                 <h5>
@@ -549,16 +549,16 @@
           <div class="form_container">
             <form action="">
               <div>
-                <input type="text" placeholder="Your Name" />
+                <input type="text" placeholder="Your Name" name="name" />
               </div>
               <div>
-                <input type="text" placeholder="Phone Number" />
+                <input type="text" placeholder="Phone Number" name="phone" />
               </div>
               <div>
-                <input type="email" placeholder="Email" />
+                <input type="email" placeholder="Email" name="email" />
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text" class="message-box" placeholder="Message" name="message" />
               </div>
               <div class="btn_box">
                 <button>

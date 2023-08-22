@@ -87,10 +87,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{url('login')}}"> Login</a>
                 </li>
-                <form class="form-inline">
-                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
+                <form class="example" action="">
+                  <input type="text" placeholder="Search.." name="search" value=""/>
+                  <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </ul>
               <div class="quote_btn-container">

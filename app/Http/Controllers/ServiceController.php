@@ -9,13 +9,30 @@ class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
-    public function homeService()
+     */  public function homeService(Request $request)
     {
-        $services = Service::all();
-        // dd($services);
-        return view('backend.services.index',compact('services'));
+        $search = $request->input('search', ''); // Use input() method to get the value
+
+        if ($search != "") {
+            // Where clause
+            $services = Service::where('name', 'LIKE', "%$search%")->get();
+        } else {
+            $services = Service::all();
+        }
+
+        $data = [
+            'services' => $services,
+            'search' => $search,
+        ];
+
+        return view('backend.services.index', $data); // Pass data directly to the view
     }
+    // public function homeService()
+    // {
+    //     $services = Service::all();
+    //     // dd($services);
+    //     return view('backend.services.index',compact('services'));
+    // }
 
     /**
      * Show the form for creating a new resource.

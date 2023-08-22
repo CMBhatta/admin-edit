@@ -24,7 +24,13 @@
               <i class="fas fa-times"></i>
             </button>
           </div>
-        
+          <form class="example" action="">
+            <input type="text" placeholder="Search.." name="search" value="{{$search}}"/>
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href="{{ url('/teams') }}">
+           <button class="btn btn-primary" type="button">Reset</button>
+          </a>
+          </form> <br> <br/>
           <div>
           <a href="{{route('teams.create')}}">
             <button type="button" class="btn btn-block bg-gradient-success ">Add New</button>

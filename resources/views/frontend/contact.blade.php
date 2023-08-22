@@ -13,8 +13,9 @@
       <div class="row">
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="form_container">
-            <form action="" method="post">
+            <form action="{{url('contact')}}" method="post">
             @csrf 
+            @method('POST')
               <div>
                 <input type="text" placeholder="Your Name" name="name" />
               </div>
