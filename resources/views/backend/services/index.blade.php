@@ -94,6 +94,18 @@
                 @endforeach 
               </tbody>
           </table>
+          <div class="row">
+            <ul class="pagination pagination-sm">
+                @if ($services->currentPage() > 1)
+                    <li class="page-item"><a class="page-link" href="{{ $services->previousPageUrl() }}">Previous</a></li>
+                @endif
+        
+                @if ($services->hasMorePages())
+                    <li class="page-item"><a class="page-link" href="{{ $services->nextPageUrl() }}">Next</a></li>
+                @endif
+            </ul>
+        </div>
+        
         </div>
         <!-- /.card-body -->
       </div>

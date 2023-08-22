@@ -17,7 +17,7 @@ class ServiceController extends Controller
             // Where clause
             $services = Service::where('name', 'LIKE', "%$search%")->get();
         } else {
-            $services = Service::all();
+            $services = Service::paginate(5);
         }
 
         $data = [
