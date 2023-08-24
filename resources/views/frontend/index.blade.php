@@ -15,10 +15,10 @@
                       SERVICES
                     </h1>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{url('contact')}}" class="btn1">
                         Contact Us
                       </a>
-                      <a href="" class="btn2">
+                      <a href="{{url('about')}}" class="btn2">
                         About Us
                       </a>
                     </div>
@@ -38,10 +38,10 @@
                       SERVICES
                     </h1>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{url('contact')}}" class="btn1">
                         Contact Us
                       </a>
-                      <a href="" class="btn2">
+                      <a href="{{url('about')}}" class="btn2">
                         About Us
                       </a>
                     </div>
@@ -61,10 +61,10 @@
                       SERVICES
                     </h1>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{url('contact')}}" class="btn1">
                         Contact Us
                       </a>
-                      <a href="" class="btn2">
+                      <a href="{{url('about')}}" class="btn2">
                         About Us
                       </a>
                     </div>
@@ -84,10 +84,10 @@
                       SERVICES
                     </h1>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="{{url('contact')}}" class="btn1">
                         Contact Us
                       </a>
-                      <a href="" class="btn2">
+                      <a href="{{url('about')}}" class="btn2">
                         About Us
                       </a>
                     </div>
@@ -107,10 +107,10 @@
                       SERVICES
                     </h1>
                     <div class="btn-box">
-                      <a href="{{url('frontend.contact')}}" class="btn1">
+                      <a href="{{url('contact')}}" class="btn1">
                         Contact Us
                       </a>
-                      <a href="{{url('frontend.about')}}" class="btn2">
+                      <a href="{{url('about')}}" class="btn2">
                         About Us
                       </a>
                     </div>

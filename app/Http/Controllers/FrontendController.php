@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -12,8 +13,9 @@ class FrontendController extends Controller
 {
     public function index()
         {
+            $abouts= About::all();
             $services= Service::all();
-            return view('frontend.index',compact('services'));
+            return view('frontend.index',compact('services','abouts'));
         }
     public function service(){
         $services= Service::all();
@@ -21,7 +23,9 @@ class FrontendController extends Controller
         return view('frontend.service',compact('services'));
     }
     public function about(){
-         return view('frontend.about');
+        $abouts= About::all();
+        // dd($abouts);
+         return view('frontend.about',compact('abouts'));
      }
      public function project(){
          return view('frontend.project');

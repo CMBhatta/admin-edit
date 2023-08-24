@@ -87,23 +87,37 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        
-        $validatedData = $request->validate([
-            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-        ]);
+    public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+    ]);
 
-        $service = Service::findOrFail($id);
-        $service->photo = request('photo');
-        $service->name = request('name');
-        $service->description = request('description');
-        $service->save();
-        return redirect()->route('teams.home')
-        ->with('success', 'Service updated successfully.');
+    $service = Service::findOrFail($id);
+
+    if ($request->hasFile('photo')) {
+        // Delete old photo if exists
+        if ($service->photo) {
+            $oldImagePath = public_path('images/' . $service->photo);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+        }
+
+        $fileName = time() . '.' . $request->photo->extension();
+        $request->photo->move(public_path('images/'), $fileName);
+        $service->photo = $fileName;
     }
+
+    $service->name = $request->input('name');
+    $service->description = $request->input('description');
+    $service->save();
+
+    return redirect()->route('teams.home')->with('success', 'Service updated successfully.');
+}
+
     /**
      * Remove the specified resource from storage.
      */

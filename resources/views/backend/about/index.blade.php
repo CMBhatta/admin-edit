@@ -9,7 +9,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Service Details</h3> <br><br>
+          <h3 class="card-title">About us section</h3> <br><br>
           @if(session()->has('success'))
           <div>
               {{session('success')}}
@@ -24,15 +24,8 @@
               <i class="fas fa-times"></i>
             </button>
           </div>
-          <form class="example" action="">
-            <input type="text" placeholder="Search.." name="search" value="{{$search}}"/>
-            <button type="submit" class="btn btn-primary">Search</button>
-            <a href="{{ url('/teams') }}">
-           <button class="btn btn-primary" type="button">Reset</button>
-          </a>
-          </form> <br> <br/>
           <div>
-          <a href="{{route('teams.create')}}">
+          <a href="{{url('aboutus/create')}}">
             <button type="button" class="btn btn-block bg-gradient-success ">Add New</button>
 
           </a>
@@ -45,14 +38,12 @@
                       <th style="width: 1%">
                           ID
                       </th>
-                      <th style="width: 20%">
-                           Photo
-                      </th>
-                      <th style="width: 30%">
-                          Name
-                      </th>
+                      
                       <th>
                           Description
+                      </th>
+                      <th>
+                          Photo
                       </th>
                       <th style="width: 8%" class="text-center">
                         Action
@@ -62,48 +53,36 @@
                   </tr>
               </thead>
               <tbody>
-                @foreach ($services as $service)
+                @foreach ($abouts as $about)
                 <tr>
-                    <td>{{$service->id}}</td>
-                   <td>
-                    @if($service->photo)
-                    <img src="{{ asset('images/'.$service->photo) }}" style="height: 50px;width:100px;">
-                                    @else 
-                                    <span>No image found!</span>
-                                    @endif
-                   {{-- <img src="{{ file_exists(public_path('services/img/'. $service->photo)) ? asset('services/img/'. $service->photo) :'' }}" width="50px" height="50px"> --}}
-                  </td>
-                    <td>{{$service->name}}</td>
-                    <td>{{$service->description}}</td>
-                    
-        
+                    <td>{{$about->id}}</td>
+                    <td>{{$about->description}}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('teams.edit', $service->id) }}">
+                      @if($about->photo)
+                      <img src="{{ asset('images/'.$about->photo) }}" alt="About Photo" width="100" height="100">
+
+                                      @else 
+                                      <span>No image found!</span>
+                                      @endif
+                    </td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="{{ route('aboutus.edit', $about->id) }}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                        <form action="{{ route('teams.delete', $service->id) }}" method="POST">
+                        <form action="{{ route('aboutus.delete', $about->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                      </td> 
+                       </td> 
                     
                    </tr> 
-                @endforeach 
+                @endforeach  
               </tbody>
           </table>
           <div class="row">
-            <ul class="pagination pagination-sm">
-                @if ($services->currentPage() > 1)
-                    <li class="page-item"><a class="page-link" href="{{ $services->previousPageUrl() }}">Previous</a></li>
-                @endif
-        
-                @if ($services->hasMorePages())
-                    <li class="page-item"><a class="page-link" href="{{ $services->nextPageUrl() }}">Next</a></li>
-                @endif
-            </ul>
         </div>
         
         </div>

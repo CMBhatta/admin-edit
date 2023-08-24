@@ -240,10 +240,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('members')}}" class="nav-link">
+            <a href="{{url('aboutus')}}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Members
+                About Us Section
                 {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>

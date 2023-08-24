@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,12 @@ Route::get('/teams/{id}edit',[ServiceController::class,'edit'])->name('teams.edi
 Route::put('/teams/{id}/update',[ServiceController::class,'update'])->name('teams.update');
 Route::delete('/teams/{id}/delete',[ServiceController::class,'delete'])->name('teams.delete');
 
+Route::get('/aboutus',[AboutController::class,'index'])->name('aboutus.index');
+Route::get('/aboutus/create',[AboutController::class,'create'])->name('aboutus.create');
+Route::post('/aboutus/store',[AboutController::class,'store'])->name('aboutus.store');
+Route::get('/aboutus/{id}edit',[AboutController::class,'edit'])->name('aboutus.edit');
+Route::put('/aboutus/{id}update',[AboutController::class,'update'])->name('aboutus.update');
+Route::delete('/aboutus/{id}delete',[AboutController::class,'delete'])->name('aboutus.delete');
 
 
 
