@@ -19,11 +19,12 @@
         <!-- Create Form -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Add New Service</h3>
+                <h3 class="card-title">Add New Testimonial</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('teams.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('testimonials.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('POST')
                     <div class="form-group">
                         <label for="photo">Photo</label>
                         <input type="file" class="form-control" id="photo" name="photo">

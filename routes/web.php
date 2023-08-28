@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TestimonialController;
+use App\Models\Testimonial;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,15 @@ Route::post('/aboutus/store',[AboutController::class,'store'])->name('aboutus.st
 Route::get('/aboutus/{id}edit',[AboutController::class,'edit'])->name('aboutus.edit');
 Route::put('/aboutus/{id}update',[AboutController::class,'update'])->name('aboutus.update');
 Route::delete('/aboutus/{id}delete',[AboutController::class,'delete'])->name('aboutus.delete');
+//routing for testimonial
+
+
+Route::get('/testimonials',[TestimonialController::class,'index'])->name('testimonials.index');
+Route::get('/testimonials/create',[TestimonialController::class,'create'])->name('testimonials.create');
+Route::post('/testimonials/store',[TestimonialController::class,'store'])->name('testimonials.store');
+Route::get('/testimonials/{id}edit',[TestimonialController::class,'edit'])->name('testimonials.edit');
+Route::put('/testimonials/{id}update',[TestimonialController::class,'update'])->name('testimonials.update');
+Route::delete('/testimonials/{id}delete',[TestimonialController::class,'delete'])->name('testimonials.delete');
 
 
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Service;
 use App\Models\ContactForm;
+use App\Models\Testimonial;
 
 class FrontendController extends Controller
 {
@@ -31,7 +32,8 @@ class FrontendController extends Controller
          return view('frontend.project');
      }
     public function testimonial(){
-         return view('frontend.testimonial');
+        $testimonials = Testimonial::all();
+         return view('frontend.testimonial', compact('testimonials'));
      }
      public function contact(){
          return view('frontend.contact');
