@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ForgetPasswordManager;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\MailController;
 use App\Models\Testimonial;
 
 /*
@@ -59,5 +61,9 @@ Route::put('/testimonials/{id}update',[TestimonialController::class,'update'])->
 Route::delete('/testimonials/{id}delete',[TestimonialController::class,'delete'])->name('testimonials.delete');
 
 
+Route::get('/forget-password',[ForgetPasswordManager::class,'forgetPassword'])->name('forget.password');
+Route::post('/forget-password/post',[ForgetPasswordManager::class,'forgetPasswordPost'])->name('forget.password.post');
+
+Route::get('send-mail',[MailController::class, 'index']);
 
 
