@@ -19,15 +19,20 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">We will send a link to your email, use that link to reset password</p>
 
-      <form action="{{route('forget.password.post')}}" method="post">
+      <form action="{{ route('reset.password.post', ['token' => $token]) }}" method="post">
+
         @csrf
         @method('post')
+        <input type="text"  name="token" hidden value="{{$token}}">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
         </div>
-    
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Enter New Password" name="password">
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Confirm Your Password" name="password_confirmation">
         <div class="row">
           <div class="col-8">
           <!-- /.col -->
